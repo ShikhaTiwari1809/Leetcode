@@ -1,2 +1,2 @@
 # DSA_Practise
-Data structure and algorithm
+Everything DSA
