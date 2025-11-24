@@ -1,2 +1,3 @@
 # DSA_Practise
-Everything DSA
+
+Solving leetcode problems.
