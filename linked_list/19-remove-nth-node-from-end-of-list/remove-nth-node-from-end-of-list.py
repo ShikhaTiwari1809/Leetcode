@@ -5,35 +5,19 @@
 #         self.next = next
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        
-        def reverse(reversehead):
-            curr = reversehead
-            prev = None
-            while curr:
-                nxt = curr.next
-                curr.next = prev
-                prev = curr
-                curr =nxt
-            return prev
-        
-
-        # reverse the second half
-        rev_head = reverse(head)
-
-        curr = rev_head
+        dummy = ListNode()
+        dummy.next = head
+        fast = slow =dummy
         cnt =1
-        prev = None
-
         
-        while curr:
-            if n ==1:
-                rev_head = rev_head.next
-                break
-            if cnt ==n:
-                prev.next = curr.next
-            prev = curr
-            curr = curr.next
-            cnt +=1
+        while cnt<=n:
+            fast = fast.next
+            cnt+=1
         
-        return reverse(rev_head)
+        while fast.next:
+            slow = slow.next
+            fast = fast.next
         
+        slow.next = slow.next.next
+        
+        return dummy.next
