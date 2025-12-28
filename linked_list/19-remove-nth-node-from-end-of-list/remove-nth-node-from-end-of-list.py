@@ -35,6 +35,5 @@ class Solution:
             curr = curr.next
             cnt +=1
         
-        print(rev_head)
         return reverse(rev_head)
         
