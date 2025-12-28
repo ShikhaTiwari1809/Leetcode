@@ -30,8 +30,8 @@ class Solution:
         # reverse the second half
         rev_second = reverse(second)
 
-
-        while first and rev_second:
+        # merge first and reversed second together
+        while rev_second:
             firstnxt = first.next
             secnxt = rev_second.next
             first.next = rev_second
