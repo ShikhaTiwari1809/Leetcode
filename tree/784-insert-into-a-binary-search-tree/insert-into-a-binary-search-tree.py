@@ -22,5 +22,15 @@ class Solution:
                     break
                 curr = curr.left
         return root
+        ''' # Recursive solution
+        if root is None:
+            return TreeNode(val)
+
+        if val < root.val:
+            root.left = self.insertIntoBST(root.left, val)
+        else:
+            root.right = self.insertIntoBST(root.right, val)
+
+        return root'''
                 
         
