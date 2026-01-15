@@ -20,7 +20,6 @@ class Solution:
         # add leftovers (flat)
         final_num.extend(nums1[l1:])
         final_num.extend(nums2[l2:])
-        
-        print(final_num)
+
 
         return statistics.median(final_num)
