@@ -6,26 +6,20 @@
 #         self.right = right
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
-        
+        self.balanced = True
         def height(node):
-            h=-1
-            if node is None:
+            if node is None or not self.balanced:
                 return 0
             
             left_h = height(node.left)
-            if left_h == -1:
-                return -1
 
             right_h = height(node.right)
-            if right_h == -1:
-                return -1
-                
-            if abs(left_h - right_h)>1:
-                return -1
             
+            if abs(left_h - right_h)>1:
+                self.balanced = False
+                
             return 1+ max(left_h,right_h)
             
         he = height(root)
-        print(he)
 
-        return he!=-1
+        return self.balanced
