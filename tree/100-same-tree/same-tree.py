@@ -7,10 +7,6 @@
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         
-        
-        pq = deque([p])
-        qq = deque([q])
-
         dq = deque([(p, q)])
 
         while dq:
