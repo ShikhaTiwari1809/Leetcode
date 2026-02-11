@@ -10,23 +10,18 @@ class Solution:
         if root is None:
             return 0
         
-        q = deque([root])
-        depth_val = []
-        depth =0
-        while q:
-            
-            for _ in range(len(q)):
-                node = q.popleft()
-                
-                if node.left is None and node.right is None:
-                    depth_val.append(depth+1)
-                    
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
+        q = deque([(root, 1)])
 
-            depth+=1
+        
+        while q:
+            node, depth = q.popleft()
             
-        return min(depth_val)
+            if node.left is None and node.right is None:
+                return depth
+                
+            if node.left:
+                q.append((node.left, depth + 1))
+            if node.right:
+                q.append((node.right, depth + 1))
+
         
