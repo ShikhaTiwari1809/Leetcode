@@ -17,12 +17,8 @@ class Solution:
         while q:
             last_val = None
             for _ in range(len(q)):
-                
-                #left_node = q.popleft()
-                #right_node = q.popright()
                 node = q.popleft()
                 last_val = node.val
-                print(node.val)
 
                 if node.left:
                     q.append(node.left)
@@ -30,7 +26,7 @@ class Solution:
                 if node.right:
                     q.append(node.right)
 
-            print('**')
+            
             rightPeek.append(last_val)
         
         return rightPeek
