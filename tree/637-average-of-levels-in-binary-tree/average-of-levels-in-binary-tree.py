@@ -23,7 +23,7 @@ class Solution:
                 if node.right:
                     q.append(node.right)
             
-            cur_avg = level_sum/level_size
-            average.append(cur_avg)
+            
+            average.append(level_sum/level_size)
         
         return average
