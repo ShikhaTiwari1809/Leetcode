@@ -12,17 +12,20 @@ class Solution:
         
         
         q = deque([root])
-        left_node = None
+        #left_node = None
 
         while q:
+            ans = q[0].val 
             for _ in range(len(q)):
                 
                 node = q.popleft()
-                left_node = node.val
+                #left_node = node.val
 
-                if node.right:
-                    q.append(node.right)
                 if node.left:
                     q.append(node.left)
+                    
+                if node.right:
+                    q.append(node.right)
+                
         
-        return left_node
+        return ans
