@@ -11,13 +11,13 @@ class Solution:
         
         stack = [(root,root.val)]
         result = []
-
+        total = 0
         while stack:
 
             node, prev = stack.pop()
 
             if not node.left and not node.right:
-                result.append(prev)
+                total += prev
                 continue
             
             if node.right:
@@ -25,6 +25,6 @@ class Solution:
             if node.left:
                 stack.append((node.left, prev*10+ node.left.val))
         
-        return sum(result)
+        return total
         
         
