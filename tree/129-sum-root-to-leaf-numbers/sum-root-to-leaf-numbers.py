@@ -9,22 +9,21 @@ class Solution:
         if not root:
             return 0
         
-        stack = [(root,[str(root.val)])]
+        stack = [(root,root.val)]
         result = []
 
         while stack:
 
-            node, path = stack.pop()
+            node, prev = stack.pop()
 
             if not node.left and not node.right:
-                
-                result.append(int(''.join(path)))
+                result.append(prev)
                 continue
             
             if node.right:
-                stack.append((node.right, path+ [str(node.right.val)]))
+                stack.append((node.right, prev*10+ node.right.val))
             if node.left:
-                stack.append((node.left, path+ [str(node.left.val)]))
+                stack.append((node.left, prev*10+ node.left.val))
         
         return sum(result)
         
