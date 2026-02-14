@@ -9,20 +9,20 @@ class Solution:
         if not root:
             return []
         
-        stack = [(root, [root.val])]
+        stack = [(root, [str(root.val)])]
         result =[]
 
         while stack:
             node, path = stack.pop()
 
             if not node.left and not node.right:
-                result.append('->'.join(str(item) for item in path))
+                result.append("->".join(path))
                 continue
             if node.right:
-                stack.append((node.right, path + [node.right.val]))
+                stack.append((node.right, path + [str(node.right.val)]))
 
             if node.left:
-                stack.append((node.left, path +[node.left.val]))
+                stack.append((node.left, path + [str(node.left.val)]))
 
         
         return result
