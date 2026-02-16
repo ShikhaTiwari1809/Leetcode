@@ -8,24 +8,20 @@ class Solution:
     def goodNodes(self, root: TreeNode) -> int:
         if not root:
             return 0
-        
+
         count = 0
-        stack =[(root, [root.val])]
-        result =[]
+        stack = [(root, root.val)]  # (node, max_so_far)
 
         while stack:
-            node, path = stack.pop()
-            
-             
+            node, max_so_far = stack.pop()
+
+            if node.val >= max_so_far:
+                count += 1
+                max_so_far = node.val  # update since it's the new max
+
             if node.right:
-                stack.append((node.right, path+[node.right.val]))
-                
+                stack.append((node.right, max_so_far))
             if node.left:
-                stack.append((node.left, path+[node.left.val]))
-            result.append(path)
-        
-        for ele in result:
-            if ele[-1] == max(ele):
-                count+=1
+                stack.append((node.left, max_so_far))
 
         return count
