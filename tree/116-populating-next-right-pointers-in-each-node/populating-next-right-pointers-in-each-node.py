@@ -10,6 +10,12 @@ class Node:
 
 class Solution:
     def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        # To optimize the space we will not store queue or other level data
+        # we will utilize curr and nxt pointer, curr consider it as parent , once we have parent we know its right child will next for  
+        # its left child and its right child next will be its parents's next left child if parent's next exist else it will be none 
+        # meaning level is ended ; Once we assign next for both the child we will move to curr.next if it exist we will do the same for that
+        # but if it don't exist means we are at end of current level so we will assign curr = nxt (which is leftmost child of new level)
+        # and continue
 
         curr , nxt = root, root.left if root else None
 
