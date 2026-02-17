@@ -13,7 +13,7 @@ class Solution:
         if not root:
             return root
         
-        curr , nxt = root, root.left if root else None
+        curr , nxt = root, root.left
 
         while curr and nxt:
             curr.left.next = curr.right
