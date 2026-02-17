@@ -7,6 +7,7 @@
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
         self.balanced = True
+        
         def height(node):
             if node is None or not self.balanced:
                 return 0
