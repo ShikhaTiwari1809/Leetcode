@@ -13,27 +13,20 @@ class Solution:
         if not root:
             return root
         
-        q = deque([root])
-       
+        curr , nxt = root, root.left if root else None
 
-        while q:
+        while curr and nxt:
+            curr.left.next = curr.right
+            if curr.next:
+                curr.right.next = curr.next.left
             
-            levelnode =[]
-            for i in range(len(q)):
-                node = q.popleft()
-                
-                levelnode.append(node)
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
-            
-            for i in range(len(levelnode)):
-                if i == len(levelnode)-1:
-                    levelnode[i].next = None
-                else:
-                    levelnode[i].next = levelnode[i+1]
-   
+            curr = curr.next
 
+            if not curr:
+                curr = nxt
+                nxt = curr.left
+        
         return root
-    
+
+
+        
