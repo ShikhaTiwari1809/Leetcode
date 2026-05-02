@@ -4,7 +4,4 @@ class Solution:
         counts = Counter(s)
         countt = Counter(t)
 
-        print(counts)
-        print(countt)
-
         return counts == countt
